@@ -1,43 +1,79 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بلايستيشن الجوكر - جاري التحميل...</title>
-    <style>
-        body {
-            background-color: #0b0b0f;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding-top: 100px;
-        }
-        .logo {
-            max-width: 250px;
-            width: 100%;
-            border-radius: 10px;
-            border: 2px solid #ffcc00;
-            margin-bottom: 20px;
-        }
-        h2 {
-            color: #ffcc00;
-        }
-    </style>
-    <!-- كود التحويل التلقائي الفوري للسيرفر -->
-    <meta http-equiv="refresh" content="1;url=https://ps4idea.github.io/960N">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JOKER PS4</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{
+  font-family:Arial,sans-serif;
+  color:#fff;
+  background:#05020a url('joker-bg.png') center/cover no-repeat fixed;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+body:before{
+  content:"";position:fixed;inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.72));
+  z-index:0;
+}
+.card{
+  position:relative;z-index:1;
+  width:min(92%,520px);
+  padding:28px 22px 24px;
+  text-align:center;
+  border:1px solid rgba(255,210,70,.45);
+  border-radius:24px;
+  background:rgba(7,4,16,.72);
+  backdrop-filter:blur(8px);
+  box-shadow:0 0 40px rgba(90,0,255,.35), inset 0 0 30px rgba(255,190,0,.05);
+}
+.logo{
+  width:min(88%,430px);
+  max-height:250px;
+  object-fit:contain;
+  border-radius:16px;
+  margin-bottom:10px;
+}
+h1{
+  margin:6px 0 4px;
+  font-size:clamp(28px,7vw,44px);
+  letter-spacing:2px;
+  text-shadow:0 0 14px #7b2cff;
+}
+p{margin:8px 0 20px;color:#ddd;font-size:16px}
+.btn{
+  display:inline-block;
+  border:0;
+  border-radius:14px;
+  padding:15px 30px;
+  font-size:20px;
+  font-weight:700;
+  color:#111;
+  background:linear-gradient(135deg,#ffd84d,#fff0a3,#d69b00);
+  box-shadow:0 8px 25px rgba(255,193,7,.3);
+  cursor:pointer;
+}
+.btn:active{transform:scale(.98)}
+.note{font-size:12px;color:#aaa;margin-top:14px}
+</style>
 </head>
 <body>
+  <main class="card">
+    <img src="joker-bg.png" alt="JOKER PlayStation Lounge" class="logo">
+    <h1>JOKER PS4</h1>
+    <p>صفحة تشغيل جهاز البلايستيشن</p>
+    <button class="btn" onclick="openServer()">تشغيل PS4</button>
+    <div class="note">اضغط الزر لفتح الصفحة الحالية.</div>
+  </main>
 
-    <img src="logo.png" alt="بلايستيشن الجوكر" class="logo">
-    <h2>جاري تشغيل الثغرة وتفعيل الجوكر...</h2>
-    <p>يرجى الانتظار، يتم فتح السيرفر تلقائياً...</p>
-
-    <script>
-        // محاولة تحويل إضافية لضمان فتح السيرفر مباشرة
-        setTimeout(function() {
-            window.location.href = "https://ps4idea.github.io/960N";
-        }, 1000);
-    </script>
-
+<script>
+function openServer(){
+  window.location.href = "https://ps4idea.github.io/960N";
+}
+</script>
 </body>
 </html>
