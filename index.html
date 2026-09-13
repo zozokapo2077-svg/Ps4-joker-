@@ -1,79 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>JOKER PS4</title>
 <style>
 *{box-sizing:border-box}
-html,body{margin:0;width:100%;height:100%;overflow:hidden}
-body{
-  font-family:Arial,sans-serif;
-  color:#fff;
-  background:#05020a url('joker-bg.png') center/cover no-repeat fixed;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-body:before{
-  content:"";position:fixed;inset:0;
-  background:linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.72));
-  z-index:0;
-}
-.card{
-  position:relative;z-index:1;
-  width:min(92%,520px);
-  padding:28px 22px 24px;
-  text-align:center;
-  border:1px solid rgba(255,210,70,.45);
-  border-radius:24px;
-  background:rgba(7,4,16,.72);
-  backdrop-filter:blur(8px);
-  box-shadow:0 0 40px rgba(90,0,255,.35), inset 0 0 30px rgba(255,190,0,.05);
-}
-.logo{
-  width:min(88%,430px);
-  max-height:250px;
-  object-fit:contain;
-  border-radius:16px;
-  margin-bottom:10px;
-}
-h1{
-  margin:6px 0 4px;
-  font-size:clamp(28px,7vw,44px);
-  letter-spacing:2px;
-  text-shadow:0 0 14px #7b2cff;
-}
-p{margin:8px 0 20px;color:#ddd;font-size:16px}
-.btn{
-  display:inline-block;
-  border:0;
-  border-radius:14px;
-  padding:15px 30px;
-  font-size:20px;
-  font-weight:700;
-  color:#111;
-  background:linear-gradient(135deg,#ffd84d,#fff0a3,#d69b00);
-  box-shadow:0 8px 25px rgba(255,193,7,.3);
-  cursor:pointer;
-}
-.btn:active{transform:scale(.98)}
-.note{font-size:12px;color:#aaa;margin-top:14px}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#030207}
+body{display:flex;align-items:center;justify-content:center;font-family:Arial,sans-serif;color:#fff}
+.bg{position:fixed;inset:0;background:url("joker-logo.png") center/cover no-repeat;filter:brightness(.28) saturate(1.25)}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.62)}
+.box{position:relative;z-index:2;width:min(90vw,520px);padding:20px;text-align:center;border:1px solid rgba(255,210,60,.5);border-radius:24px;background:rgba(7,4,15,.76);backdrop-filter:blur(8px);box-shadow:0 0 40px rgba(90,0,255,.35)}
+.logo{width:100%;max-height:300px;object-fit:contain;border-radius:16px}
+h1{margin:12px 0 5px;font-size:clamp(28px,7vw,42px)}
+p{margin:0;color:#ddd}
+.status{margin-top:18px;color:#ffd83d;font-weight:bold}
+.spinner{width:28px;height:28px;border:3px solid rgba(255,255,255,.2);border-top-color:#ffd83d;border-radius:50%;margin:15px auto 0;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
 </style>
 </head>
 <body>
-  <main class="card">
-    <img src="joker-bg.png" alt="JOKER PlayStation Lounge" class="logo">
-    <h1>JOKER PS4</h1>
-    <p>صفحة تشغيل جهاز البلايستيشن</p>
-    <button class="btn" onclick="openServer()">تشغيل PS4</button>
-    <div class="note">اضغط الزر لفتح الصفحة الحالية.</div>
-  </main>
+<div class="bg"></div><div class="overlay"></div>
+<div class="box">
+  <img class="logo" src="joker-logo.png" alt="JOKER">
+  <h1>JOKER PS4</h1>
+  <p>جاري تشغيل الـ PS4 Host...</p>
+  <div class="status">بدء التشغيل تلقائياً</div>
+  <div class="spinner"></div>
+</div>
 
 <script>
-function openServer(){
-  window.location.href = "https://ps4idea.github.io/960N";
-}
+/*
+  يتم التحويل تلقائياً بدون أي زر.
+  هذا يحافظ على الـHost الحالي الذي كنت تستخدمه.
+*/
+window.addEventListener("load", function () {
+  setTimeout(function () {
+    window.location.replace("https://gamerhack.github.io/900v3/");
+  }, 1200);
+});
 </script>
 </body>
 </html>
