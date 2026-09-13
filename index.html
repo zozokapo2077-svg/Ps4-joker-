@@ -3,78 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بلايستيشن الجوكر - تعديل PS4</title>
+    <title>بلايستيشن الجوكر - أبو تيم</title>
     <style>
         body {
             background-color: #0b0b0f;
             color: #ffffff;
             font-family: Arial, sans-serif;
             text-align: center;
-            padding: 15px;
-        }
-        .container {
-            max-width: 700px;
-            margin: 0 auto;
-            background: #14141c;
+            margin: 0;
             padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.7);
-            border: 1px solid #2a2a3d;
+        }
+        .header-container {
+            margin-bottom: 20px;
         }
         .logo {
+            max-width: 320px;
             width: 100%;
-            max-height: 220px;
-            object-fit: cover;
-            border-radius: 10px;
+            height: auto;
+            border-radius: 12px;
             border: 2px solid #ffcc00;
-            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
+            margin-bottom: 10px;
         }
         h1 {
             color: #0070d1;
-            margin-bottom: 5px;
-            font-size: 24px;
+            font-size: 28px;
+            margin: 5px 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
         .subtitle {
             color: #ffcc00;
-            font-size: 15px;
-            margin-bottom: 15px;
+            font-size: 16px;
             font-weight: bold;
+            margin-bottom: 25px;
         }
-        /* تصميم الشاشة الداخلية اللي هيفتح فيها السيرفر جوه صفحتك */
-        .exploit-frame {
-            width: 100%;
-            height: 450px;
-            border: 2px solid #0070d1;
-            border-radius: 10px;
-            background-color: #000;
-            margin-top: 15px;
+        .btn-container {
+            margin: 20px 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #0070d1, #00438a);
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 112, 209, 0.5);
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: linear-gradient(135deg, #005bb5, #003366);
         }
         .note {
-            color: #b0b0b0;
-            margin-top: 15px;
+            color: #888;
+            margin-top: 30px;
             font-size: 12px;
-            border-top: 1px solid #2a2a3d;
-            padding-top: 10px;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- صورة اللوجو -->
+    <div class="header-container">
+        <!-- اللوجو الفخم بتاعك -->
         <img src="logo.png" alt="بلايستيشن الجوكر" class="logo">
         
+        <!-- اسم المحل وإدارة أبو تيم -->
         <h1>بلايستيشن الجوكر</h1>
-        <div class="subtitle">إدارة أبو تيم - تعديل PS4 (بدون فلاشة)</div>
-        
-        <p>شاشة تفعيل السيرفر مباشرة:</p>
+        <div class="subtitle">إدارة أبو تيم - تعديل PS4 (9.60)</div>
+    </div>
 
-        <!-- السيرفر هيفتح هنا جوه صفحتك بالظبط -->
-        <iframe src="https://ps4idea.github.io/960N" class="exploit-frame"></iframe>
+    <div class="btn-container">
+        <!-- زرار تشغيل السيرفر -->
+        <a href="https://ps4idea.github.io/960N" class="btn" target="_blank">🎮 تشغيل سيرفر التعديل</a>
+    </div>
 
-        <div class="note">
-            ⚠️ <b>ملاحظة:</b> صفحة محل بلايستيشن الجوكر - انتظر حتى يتم تحميل السيرفر بالكامل وتفعيل الثغرة.
-        </div>
+    <div class="note">
+        ⚠️ صفحة خاصة بمحل بلايستيشن الجوكر - تفعيل الثغرة بدون فلاشة.
     </div>
 
 </body>
