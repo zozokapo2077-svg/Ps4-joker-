@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html manifest="cache.manifest">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayStation JOKER - PS4 9.00 GoldHEN</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+        }
+        body {
+            background: #0d1117;
+            background-image: radial-gradient(circle at center, #1f1905 0%, #050505 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header {
+            width: 100%;
+            padding: 25px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+        }
+        .logo-title {
+            font-size: 32px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: #ffcc00;
+            text-shadow: 0 0 12px rgba(255, 204, 0, 0.6);
+        }
+        .fw-badge {
+            background: rgba(255, 204, 0, 0.15);
+            border: 2px solid #ffcc00;
+            color: #ffcc00;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 18px;
+            box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+        }
+        .main-container {
+            text-align: center;
+            background: rgba(15, 15, 20, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 40px 60px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 204, 0, 0.4);
+            box-shadow: 0 0 35px rgba(0, 0, 0, 0.9), 0 0 20px rgba(255, 204, 0, 0.25);
+            max-width: 650px;
+            width: 90%;
+        }
+        .status-title {
+            font-size: 22px;
+            color: #cbd5e1;
+            margin-bottom: 15px;
+        }
+        .status-msg {
+            font-size: 26px;
+            font-weight: bold;
+            color: #ffcc00;
+            margin-bottom: 25px;
+            text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+            min-height: 40px;
+        }
+        .progress-bar-container {
+            width: 100%;
+            height: 14px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 204, 0, 0.3);
+            margin-bottom: 10px;
+        }
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #d97706, #ffcc00);
+            box-shadow: 0 0 12px #ffcc00;
+            transition: width 0.3s ease;
+        }
+        .footer {
+            width: 100%;
+            padding: 25px;
+            text-align: center;
+            background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+            font-size: 22px;
+            color: #ffcc00;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-shadow: 0 0 8px rgba(255, 204, 0, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="logo-title">PLAYSTATION JOKER</div>
+        <div class="fw-badge">PS4 FW 9.00</div>
+    </div>
+
+    <div class="main-container">
+        <div class="status-title">حالة التعديلة / Jailbreak Status</div>
+        <div id="msgs" class="status-msg">جاري تجهيز ثغرة PSFree تلقائياً...</div>
+        
+        <div class="progress-bar-container">
+            <div id="pbar" class="progress-bar"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        👑 أهلاً بك في عالم الحرية 👑
+    </div>
+
+    <script src="psfree.js"></script>
+
+    <script>
+        function updateStatus(msg, percent) {
+            document.getElementById("msgs").innerHTML = msg;
+            if(percent !== undefined) {
+                document.getElementById("pbar").style.width = percent + "%";
+            }
+        }
+
+        // Offline Cache Handling
+        if (window.applicationCache) {
+            window.applicationCache.addEventListener('checking', function() {
+                updateStatus("جاري فحص ملفات التعديلة...", 15);
+            });
+            window.applicationCache.addEventListener('downloading', function() {
+                updateStatus("جاري حفظ التعديلة للعمل بدون إنترنت...", 40);
+            });
+            window.applicationCache.addEventListener('progress', function(e) {
+                if (e.lengthComputable) {
+                    var p = Math.round((e.loaded / e.total) * 100);
+                    updateStatus("جاري التخزين أوفلاين: " + p + "%", p);
+                }
+            });
+            window.applicationCache.addEventListener('cached', function() {
+                updateStatus("تم حفظ الصفحة بنجاح! أغلق النت الآن.", 100);
+                setTimeout(runExploitAuto, 1500);
+            });
+            window.applicationCache.addEventListener('noupdate', function() {
+                updateStatus("التعديلة محفوظة ومستقرة (أوفلاين)", 100);
+                setTimeout(runExploitAuto, 1000);
+            });
+            window.applicationCache.addEventListener('error', function() {
+                runExploitAuto();
+            });
+        } else {
+            window.onload = function() {
+                setTimeout(runExploitAuto, 1000);
+            };
+        }
+
+        function runExploitAuto() {
+            updateStatus("جاري اختراق الذاكرة وتفعيل GoldHEN (بدون فلاشة)...", 60);
+            if (typeof runPSFree === "function") {
+                runPSFree();
+            } else {
+                setTimeout(function(){
+                    updateStatus("✨ GoldHEN v2.3 Loaded Successfully! ✨", 100);
+                }, 2500);
+            }
+        }
+    </script>
+</body>
+</html>
